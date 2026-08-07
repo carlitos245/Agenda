@@ -162,6 +162,20 @@ body {
   }
 }
       
+.scroll-hint {
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+@media (min-width: 769px) {
+  .scroll-hint {
+    display: none; /* On cache sur PC */
+  }
+}
+      
 </style>
 </head>
 
@@ -175,6 +189,8 @@ body {
 ✔ Vision globale
 ✔ Préparation de la semaine
 </h4></center>
+
+<div class="scroll-hint"><span>⬅️ Glisser pour défiler ➡️</span></div>
 
   <div class="agenda-grid">
 
