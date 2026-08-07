@@ -6,7 +6,10 @@
 <title>Agenda Hebdomadaire</title>
 
 <style>
-      
+ .add-zone input {
+  font-size: 16px; /* empêche le zoom automatique */
+}
+     
 html, body {
   overscroll-behavior-x: none;
 }
@@ -133,6 +136,7 @@ body {
   .agenda-grid {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden; /* empêche l’étirement vertical */    
     gap: 15px;
     scroll-snap-type: x mandatory;
     padding-bottom: 10px;
@@ -143,6 +147,8 @@ body {
   }
 
   .day {
+    height: auto;
+    max-height: 85vh; /* empêche la carte de dépasser l’écran */    
     min-width: 85%;
     flex: 0 0 auto;
     scroll-snap-align: start;
