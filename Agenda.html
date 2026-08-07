@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agenda Hebdomadaire</title>
+
+<style>
+
+body {
+      margin: 0;
+      background: #A3B18A;
+      color: #222;
+    }
+
+/* Conteneur principal */
+.agenda-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #B5654A;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: Arial, sans-serif;
+
+  position: relative;   /* ✔ empêche les éléments externes de l’envahir */
+  overflow: hidden;     /* ✔ bloque les débordements du carrousel 3D */
+}
+
+/* Titre */
+.agenda-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 25px;
+  color: white;
+}
+
+/* Grille des jours */
+.agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 15px;
+}
+
+/* Chaque jour */
+.day {
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; 
+}
+
+.day h3 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* Liste des tâches */
+.task-list {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.task-item {
+  background: #ffffff;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Bouton supprimer */
+.delete-btn {
+  background: #e11d48;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #be123c;
+}
+
+/* Zone d’ajout */
+.add-zone {
+  display: flex;
+  gap: 5px;
+}
+
+.add-zone input {
+  flex: 1;
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+}
+
+.add-zone button {
+  padding: 8px 10px;
+  background: #111827;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-zone button:hover {
+  background: #374151;
+}
+
+.add-zone input {
+  min-width: 0; /* ✔ autorise l’input à rétrécir */
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="agenda-container">
+  <h2 class="agenda-title">Agenda Hebdomadaire</h2>
+
+<center><h4>Idéal pour :
+✔ Organisation
+✔ Vision globale
+✔ Préparation de la semaine
+</h4></center>
+
+  <div class="agenda-grid">
+
+    <!-- Les 7 jours -->
+    <div class="day" data-day="Lundi">
+      <h3>Lundi</h3>
+      <div class="task-list" id="Lundi"></div>
+      <div class="add-zone">
+        <input type="text" placeholder="Ajouter une tâche…" id="input-Lundi">
+        <button onclick="addTask('Lundi')">+</button>
+      </div>
+    </div>
+
+    <div class="day" data-day="Mardi">
+      <h3>Mardi</h3>
+      <div class="task-list" id="Mardi"></div>
+      <div class="add-zone">
+        <input type="text" placeholder="Ajouter une tâche…" id="input-Mardi">
+        <button onclick="addTask('Mardi')">+</button>
+      </div>
+    </div>
+
+    <div class="day" data-day="Mercredi">
+      <h3>Mercredi</h3>
+      <div class="task-list" id="Mercredi"></div>
+      <div class="add-zone">
+        <input type="text" placeholder="Ajouter une tâche…" id="input-Mercredi">
+        <button onclick="addTask('Mercredi')">+</button>
+      </div>
+    </div>
+
+    <div class="day" data-day="Jeudi">
+      <h3>Jeudi</h3>
+      <div class="task-list" id="Jeudi"></div>
+      <div class="add-zone">
+        <input type="text" placeholder="Ajouter une tâche…" id="input-Jeudi">
+        <button onclick="addTask('Jeudi')">+</button>
+      </div>
+    </div>
+
+    <div class="day" data-day="Vendredi">
+      <h3>Vendredi</h3>
+      <div class="task-list" id="Vendredi"></div>
+      <div class="add-zone">
+        <input type="text" placeholder="Ajouter une tâche…" id="input-Vendredi">
+        <button onclick="addTask('Vendredi')">+</button>
+      </div>
+    </div>
+
+    <div class="day" data-day="Samedi">
+      <h3>Samedi</h3>
+      <div class="task-list" id="Samedi"></div>
+      <div class="add-zone">
+        <input type="text" placeholder="Ajouter une tâche…" id="input-Samedi">
+        <button onclick="addTask('Samedi')">+</button>
+      </div>
+    </div>
+
+    <div class="day" data-day="Dimanche">
+      <h3>Dimanche</h3>
+      <div class="task-list" id="Dimanche"></div>
+      <div class="add-zone">
+        <input type="text" placeholder="Ajouter une tâche…" id="input-Dimanche">
+        <button onclick="addTask('Dimanche')">+</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = "agenda1";
+
+document.addEventListener("DOMContentLoaded", loadAgenda);
+
+// Charger les tâches
+function loadAgenda() {
+  const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+  Object.keys(data).forEach(day => {
+    data[day].forEach(task => displayTask(day, task));
+  });
+}
+
+// Ajouter une tâche
+function addTask(day) {
+  const input = document.getElementById("input-" + day);
+  const text = input.value.trim();
+  if (text === "") return;
+
+  const task = { text };
+  saveTask(day, task);
+  displayTask(day, task);
+
+  input.value = "";
+}
+
+// Afficher une tâche
+function displayTask(day, task) {
+  const list = document.getElementById(day);
+
+  const div = document.createElement("div");
+  div.classList.add("task-item");
+
+  div.innerHTML = `
+    <span>${task.text}</span>
+    <button class="delete-btn" onclick="deleteTask('${day}', '${task.text}', this)">X</button>
+  `;
+
+  list.appendChild(div);
+}
+
+// Sauvegarder une tâche
+function saveTask(day, task) {
+  const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  if (!data[day]) data[day] = [];
+
+  data[day].push(task);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+// Supprimer une tâche
+function deleteTask(day, text, btn) {
+  let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+  data[day] = data[day].filter(t => t.text !== text);
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+  btn.parentElement.remove();
+}
+</script>
+
+</body>
+</html>
