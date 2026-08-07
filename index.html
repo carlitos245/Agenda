@@ -6,7 +6,11 @@
 <title>Agenda Hebdomadaire</title>
 
 <style>
-
+      
+html, body {
+  overscroll-behavior-x: none;
+}
+      
 body {
       margin: 0;
       background: #A3B18A;
@@ -123,6 +127,35 @@ body {
   min-width: 0; /* ✔ autorise l’input à rétrécir */
 }
 
+/* --- CARROUSEL MOBILE --- */
+@media (max-width: 768px) {
+
+  .agenda-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+
+  .agenda-grid::-webkit-scrollbar {
+    display: none; /* ✔ enlève la barre moche */
+  }
+
+  .day {
+    min-width: 85%;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    background: #f7f7f7;
+    border-radius: 12px;
+    padding: 15px;
+  }
+
+  .agenda-title {
+    font-size: 26px;
+  }
+}
+      
 </style>
 </head>
 
