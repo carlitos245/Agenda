@@ -82,12 +82,14 @@ gap: 8px;
 }
  
 .task-item span {
+display: block;
 flex: 1;
 min-width: 0;
+width: 100%;
  
 white-space: normal;
-word-break: break-all;
-overflow-wrap: anywhere;
+word-wrap: break-word;
+overflow-wrap: break-word;
 }
  
 /* Bouton supprimer */
@@ -186,7 +188,7 @@ overflow-wrap: anywhere;
 <body>
 
 <div class="agenda-container">
-  <h2 class="agenda-title">Agendaza Hebdomadaire</h2>
+  <h2 class="agenda-title">Agendo Hebdomadaire</h2>
 
 <center><h4>Idéal pour :
 ✔ Organisation
