@@ -47,6 +47,7 @@ overflow: hidden;
 display: grid;
 grid-template-columns: repeat(7, 1fr);
 gap: 15px;
+min-width: 0;
 }
 
 /* Chaque jour */
@@ -56,8 +57,9 @@ padding: 15px;
 border-radius: 10px;
 min-height: 250px;
 display: flex;
-flex-direction: column;
+flex-direction: column; 
 min-width: 0;
+width: 0;
 }
 
 .day h3 {
@@ -82,14 +84,12 @@ gap: 8px;
 }
  
 .task-item span {
-display: block;
 flex: 1;
 min-width: 0;
 width: 100%;
  
 white-space: normal;
-word-wrap: break-word;
-overflow-wrap: break-word;
+overflow-wrap: anywhere;
 }
  
 /* Bouton supprimer */
@@ -188,7 +188,7 @@ overflow-wrap: break-word;
 <body>
 
 <div class="agenda-container">
-  <h2 class="agenda-title">Agendo Hebdomadaire</h2>
+  <h2 class="agenda-title">Agenda Hebdomadaire</h2>
 
 <center><h4>Idéal pour :
 ✔ Organisation
