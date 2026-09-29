@@ -58,7 +58,9 @@ body {
   min-height: 250px;
   display: flex;
   flex-direction: column;
-  min-width: 0; 
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: anywhere; 
 }
 
 .day h3 {
@@ -86,7 +88,7 @@ max-width: 100%;
 overflow: hidden;
 }
  
-.task-item span {
+.task-item > div {
 flex: 1;
 min-width: 0;
  
@@ -103,7 +105,11 @@ flex-shrink: 0;
 width: 100%;
 overflow-x: hidden;
 }
- 
+.task-list {
+flex: 1;
+margin-bottom: 10px;
+width: 100%;
+} 
 .day {
 min-width: 0;
 overflow-x: hidden;
@@ -205,7 +211,7 @@ overflow-x: hidden;
 <body>
 
 <div class="agenda-container">
-  <h2 class="agenda-title">Agendas Hebdomadaire</h2>
+  <h2 class="agenda-title">Agendass Hebdomadaire</h2>
 
 <center><h4>Idéal pour :
 ✔ Organisation
