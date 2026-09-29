@@ -81,14 +81,14 @@ align-items: flex-start;
 gap: 8px;
 }
  
-.task-item > div {
+.task-item span {
 flex: 1;
 min-width: 0;
-}
  
-.task-item button {
-flex-shrink: 0;
-} 
+white-space: normal;
+word-break: break-all;
+overflow-wrap: anywhere;
+}
  
 /* Bouton supprimer */
 .delete-btn {
@@ -186,7 +186,7 @@ flex-shrink: 0;
 <body>
 
 <div class="agenda-container">
-  <h2 class="agenda-title">Agendazo Hebdomadaire</h2>
+  <h2 class="agenda-title">Agendaza Hebdomadaire</h2>
 
 <center><h4>Idéal pour :
 ✔ Organisation
@@ -297,20 +297,17 @@ function displayTask(day, task) {
 const list = document.getElementById(day);
  
 const div = document.createElement("div");
-div.className = "task-item";
+div.classList.add("task-item");
  
-const texte = document.createElement("div");
-texte.style.flex = "1";
-texte.style.wordBreak = "break-word";
-texte.style.overflowWrap = "anywhere";
-texte.textContent = task.text;
+const span = document.createElement("span");
+span.textContent = task.text;
  
 const btn = document.createElement("button");
-btn.className = "delete-btn";
+btn.classList.add("delete-btn");
 btn.textContent = "X";
 btn.onclick = () => deleteTask(day, task.text, btn);
  
-div.appendChild(texte);
+div.appendChild(span);
 div.appendChild(btn);
  
 list.appendChild(div);
