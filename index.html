@@ -22,16 +22,16 @@ body {
 
 /* Conteneur principal */
 .agenda-container {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #B5654A;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  font-family: Arial, sans-serif;
-
-  position: relative;   /* ✔ empêche les éléments externes de l’envahir */
-  overflow-x: auto;     /* ✔ bloque les débordements du carrousel 3D */
+max-width: 1100px;
+margin: 40px auto;
+padding: 20px;
+background: #B5654A;
+border-radius: 12px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+font-family: Arial, sans-serif;
+position: relative;
+ 
+box-sizing: border-box;
 }
 
 /* Titre */
@@ -48,19 +48,21 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 15px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Chaque jour */
 .day {
-  background: #f7f7f7;
-  padding: 15px;
-  border-radius: 10px;
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 100%;
-  overflow-wrap: anywhere; 
+background: #f7f7f7;
+padding: 15px;
+border-radius: 10px;
+min-height: 250px;
+display: flex;
+flex-direction: column;
+ 
+min-width: 0;
+overflow-x: hidden;
 }
 
 .day h3 {
@@ -110,10 +112,6 @@ flex: 1;
 margin-bottom: 10px;
 width: 100%;
 } 
-.day {
-min-width: 0;
-overflow-x: hidden;
-}
  
 /* Bouton supprimer */
 .delete-btn {
@@ -211,7 +209,7 @@ overflow-x: hidden;
 <body>
 
 <div class="agenda-container">
-  <h2 class="agenda-title">Agendas Hebdomadaire</h2>
+  <h2 class="agenda-title">Agendassss Hebdomadaire</h2>
 
 <center><h4>Idéal pour :
 ✔ Organisation
