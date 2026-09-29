@@ -82,10 +82,16 @@ body {
   border-radius: 6px;
   border: 1px solid #ddd;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
 }
-
+.task-item span {
+ flex: 1;
+ min-width: 0;
+ white-space: normal;
+ overflow-wrap: anywhere;
+}
+ 
 /* Bouton supprimer */
 .delete-btn {
   background: #e11d48;
