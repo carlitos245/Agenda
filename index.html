@@ -313,24 +313,26 @@ function addTask(day) {
 
 // Afficher une tâche
 function displayTask(day, task) {
-  const list = document.getElementById(day);
-
-  const div = document.createElement("div");
-  div.classList.add("task-item");
-
-  const span = document.createElement("span");
-span.textContent = task.text;
-
+const list = document.getElementById(day);
+ 
+const div = document.createElement("div");
+div.className = "task-item";
+ 
+const texte = document.createElement("div");
+texte.style.flex = "1";
+texte.style.wordBreak = "break-word";
+texte.style.overflowWrap = "anywhere";
+texte.textContent = task.text;
+ 
 const btn = document.createElement("button");
-btn.classList.add("delete-btn");
+btn.className = "delete-btn";
 btn.textContent = "X";
 btn.onclick = () => deleteTask(day, task.text, btn);
-
-div.appendChild(span);
+ 
+div.appendChild(texte);
 div.appendChild(btn);
-
-
-  list.appendChild(div);
+ 
+list.appendChild(div);
 }
 
 // Sauvegarder une tâche
